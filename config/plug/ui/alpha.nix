@@ -55,7 +55,7 @@
             mkButton
             "F"
             "<CMD>FzfLua live_grep<CR>"
-            " Find text"
+            " Find text"
             "String"
           )
 
@@ -63,14 +63,14 @@
             mkButton
             "ff"
             "<CMD>FzfLua files<CR>"
-            " Find files"
+            " Find files"
             "String"
           )
           (
             mkButton
             "n"
             "ene <BAR>startinsert<CR>"
-            " Find files"
+            " Find files"
             "String"
           )
 
@@ -85,7 +85,7 @@
             mkButton
             "q"
             "<CMD>qa<CR>"
-            " Quit Neovim"
+            " Quit Neovim"
             "String"
           )
         ];
