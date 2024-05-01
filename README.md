@@ -1,0 +1,2 @@
+# Vimix
+nvim with nix
