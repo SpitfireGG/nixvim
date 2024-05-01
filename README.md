@@ -1,2 +1,3 @@
-# Vimix
-nvim with nix
+# VIMIX
+
+# a nix powered nvim (NixVim - A Neovim configuration system for nix)
