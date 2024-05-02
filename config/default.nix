@@ -28,6 +28,7 @@
     ./plug/lsp/lspsaga.nix
     ./plug/lsp/none-ls.nix
     ./plug/lsp/trouble.nix
+    ./plug/lsp/per/rustaceans.nix
 
     ./plug/snippets/luasnip.nix
 
