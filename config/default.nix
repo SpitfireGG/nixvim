@@ -12,7 +12,7 @@
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/cmp.nix
-     ./plug/completion/copilot-cmp.nix
+    ./plug/completion/copilot-cmp.nix
     ./plug/completion/lspkind.nix
     ./plug/completion/schemastore.nix
 
@@ -44,6 +44,7 @@
     ./plug/ui/noice.nix
     ./plug/ui/nvim-notify.nix
     ./plug/ui/telescope.nix
+    ./plug/ui/indent.nix
 
     ./plug/utils/comment.nix
     #  ./plug/utils/copilot.nix
