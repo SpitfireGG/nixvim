@@ -67,7 +67,7 @@
     {
       mode = "n";
       key = "<leader><tab><tab>";
-      action = "<CMD>tabnew<CR>";
+      action = "<CMD>tabnew<cr>";
       options = {
         silent = true;
         desc = "New Tab";
@@ -77,19 +77,27 @@
     {
       mode = "n";
       key = "<C>j";
-      action = "<CMD>bnext<CR>";
+      action = "<CMD>bnext<cr>";
+      options = {
+        silent = true;
+        desc = "Next Tab";
+      };
     }
 
     {
       mode = "n";
       key = "<C>k";
-      action = "<CMD>bprevious<CR>";
+      action = "<CMD>bprevious<cr>";
+      options = {
+        silent = true;
+        desc = "Next Tab";
+      };
     }
 
     {
       mode = "n";
       key = "<leader><tab>d";
-      action = "<CMD>tabclose<CR>";
+      action = "<CMD>tabclose<cr>";
       options = {
         silent = true;
         desc = "Close tab";

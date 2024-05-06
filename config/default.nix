@@ -26,9 +26,9 @@
     ./plug/lsp/hlchunk.nix
     ./plug/lsp/lsp.nix
     ./plug/lsp/lspsaga.nix
-    ./plug/lsp/none-ls.nix
     ./plug/lsp/trouble.nix
     ./plug/lsp/per/rustaceans.nix
+    ./plug/lsp/per/clang.nix
 
     ./plug/snippets/luasnip.nix
 
