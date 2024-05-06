@@ -1,5 +1,5 @@
 {
-  plugins.sorround = {
+  plugins.surround = {
     enable = true;
   };
 }
