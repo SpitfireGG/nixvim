@@ -61,6 +61,7 @@
     ./plug/utils/whichkey.nix
     ./plug/utils/toggleterm.nix
     ./plug/utils/fzf.nix
+    ./plug/utils/sorround.nix
   ];
   options = {
     theme = lib.mkOption {
