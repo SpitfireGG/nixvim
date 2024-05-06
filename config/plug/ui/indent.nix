@@ -1,8 +1,8 @@
 {
   plugins.indent-blankline = {
     enable = true;
-    extraOptions.indent.smart_indent_cap = true;
     settings = {
+      indent.smart_indent_cap = true;
       exclude = {
         buftypes = [
           "terminal"

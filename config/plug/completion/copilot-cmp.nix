@@ -1,9 +1,9 @@
 {
   plugins.copilot-cmp = {
-    enable = false;
+    enable = true;
   };
   plugins.copilot-lua = {
-    enable = false;
+    enable = true;
     suggestion = {enabled = false;};
     panel = {enabled = false;};
   };

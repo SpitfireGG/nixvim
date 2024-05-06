@@ -67,7 +67,7 @@
     {
       mode = "n";
       key = "<leader><tab><tab>";
-      action = "<cmd>tabnew<cr>";
+      action = "<CMD>tabnew<CR>";
       options = {
         silent = true;
         desc = "New Tab";
@@ -77,19 +77,19 @@
     {
       mode = "n";
       key = "<C-j>";
-      action = "<cmd>bnext<CR>";
+      action = "<CMD>bnext<CR>";
     }
 
     {
       mode = "n";
       key = "<C-k>";
-      action = "<cmd>bprevious<CR>";
+      action = "<CMD>bprevious<CR>";
     }
 
     {
       mode = "n";
       key = "<leader><tab>d";
-      action = "<cmd>tabclose<cr>";
+      action = "<CMD>tabclose<CR>";
       options = {
         silent = true;
         desc = "Close tab";
@@ -99,7 +99,7 @@
     {
       mode = "n";
       key = "<C>d";
-      action = "<cmd>Lspsaga outline<cr>";
+      action = "<CMD>Lspsaga outline<cr>";
       options = {
         silent = true;
         desc = "toggle outline";
@@ -189,8 +189,17 @@
 
     {
       mode = "n";
+      key = "<M-1>";
+      action = "<CMD>ToggleTerm<CR>";
+      options = {
+        silent = true;
+        desc = "Popup terminal";
+      };
+    }
+    {
+      mode = "n";
       key = "<C-s>";
-      action = "<cmd>w<cr><esc>";
+      action = "<CMD>w<cr><esc>";
       options = {
         silent = true;
         desc = "Save file";
@@ -201,7 +210,7 @@
     {
       mode = "n";
       key = "<leader>qq";
-      action = "<cmd>quitall<cr><esc>";
+      action = "<CMD>quitall<cr><esc>";
       options = {
         silent = true;
         desc = "Quit all";
@@ -297,7 +306,7 @@
     {
       mode = "x";
       key = "<leader>p";
-      action = ''"_dP'';
+      action = "\"_dP";
       options = {desc = "Deletes to void register and paste over";};
     }
 
@@ -305,14 +314,14 @@
     {
       mode = ["n" "v"];
       key = "<leader>y";
-      action = ''"+y'';
-      options = {desc = "Copy to system clipboard";};
+      action = "\"+y";
+      options = {desc = " Copy to system clipboard ";};
     }
 
     {
       mode = ["n" "v"];
-      key = "<leader>Y";
-      action = ''"+Y'';
+      key = " <leader> Y ";
+      action = "\"+Y";
       options = {desc = "Copy to system clipboard";};
     }
 
@@ -320,7 +329,7 @@
     {
       mode = ["n" "v"];
       key = "<leader>D";
-      action = ''"_d'';
+      action = "\"_d";
       options = {desc = "Delete to void register";};
     }
 

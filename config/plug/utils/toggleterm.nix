@@ -2,8 +2,13 @@
   plugins.toggleterm = {
     enable = true;
     settings = {
-      openMapping = "[[<C-t>]]";
-      direction = "horizontal";
+      openMapping = "[[<c-\>]]";
+      direction = "float";
+      float_opts = {
+        border = "curved";
+        width = 130;
+        height = 30;
+      };
     };
   };
 }

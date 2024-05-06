@@ -6,13 +6,13 @@
       current_line_blame = true;
       signs = {
         add = {
-          text = "│";
+          text = "▍";
         };
         change = {
-          text = "│";
+          text = "▎";
         };
         delete = {
-          text = "╺";
+          text = "▏";
         };
         topdelete = {
           text = "‾";

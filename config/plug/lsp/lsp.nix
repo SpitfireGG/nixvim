@@ -12,7 +12,7 @@
         pyright = {enable = false;};
         gopls = {enable = true;};
         terraformls = {enable = false;};
-        tsserver = {enable = false;};
+        tsserver = {enable = true;};
         rust-analyzer = {
           enable = true;
           installRustc = true;
