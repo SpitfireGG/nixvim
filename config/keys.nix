@@ -76,13 +76,13 @@
 
     {
       mode = "n";
-      key = "<C-j>";
+      key = "<C>j";
       action = "<CMD>bnext<CR>";
     }
 
     {
       mode = "n";
-      key = "<C-k>";
+      key = "<C>k";
       action = "<CMD>bprevious<CR>";
     }
 
@@ -98,7 +98,7 @@
 
     {
       mode = "n";
-      key = "<C>d";
+      key = "<C>x";
       action = "<CMD>Lspsaga outline<cr>";
       options = {
         silent = true;
@@ -319,8 +319,8 @@
     }
 
     {
-      mode = ["n" "v"];
-      key = " <leader> Y ";
+      mode = "v";
+      key = "<leader>Y";
       action = "\"+Y";
       options = {desc = "Copy to system clipboard";};
     }
@@ -408,25 +408,6 @@
       key = "<leader>4";
       action = "<CMD> Grapple select index=4<CR>";
       options = {desc = "Grapple Select 4";};
-    }
-
-    {
-      mode = ["n" "v"];
-      key = "<leader>Y";
-      action = "\"+Y";
-      options = {desc = "save shits";};
-    }
-    {
-      mode = "n";
-      key = "<leader>y";
-      action = "\"+y";
-      options = {desc = "save some shits";};
-    }
-    {
-      mode = "v";
-      key = "<leader>y";
-      action = "\"+y";
-      options = {desc = "save idp shits";};
     }
   ];
   extraConfigLua = ''

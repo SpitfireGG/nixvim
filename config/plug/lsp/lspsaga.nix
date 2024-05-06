@@ -31,12 +31,13 @@
       };
     };
     lightbulb = {
-      enable = false;
-      sign = false;
+      enable = true;
+      sign = true;
       virtualText = true;
     };
     implement = {
       enable = false;
+      sign = false;
     };
     rename = {
       autoSave = false;
@@ -83,15 +84,15 @@
       };
     }
 
-    # {
-    #   mode = "n";
-    #   key = "gD";
-    #   action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-    #   options = {
-    #     desc = "Goto Declaration";
-    #     silent = true;
-    #   };
-    # }
+    {
+      mode = "n";
+      key = "gl";
+      action = "<cmd>Lspsaga show_line_diagnostics<CR>";
+      options = {
+        desc = "Goto Declaration";
+        silent = true;
+      };
+    }
 
     {
       mode = "n";
