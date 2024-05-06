@@ -60,6 +60,7 @@
     ./plug/utils/ufo.nix
     ./plug/utils/whichkey.nix
     ./plug/utils/toggleterm.nix
+    ./plug/utils/fzf.nix
   ];
   options = {
     theme = lib.mkOption {
