@@ -1,7 +1,7 @@
 {
   plugins.toggleterm = {
     enable = true;
-    settings = {
+    /* settings = {
       openMapping = "[[<c-\>]]";
       direction = "float";
       float_opts = {
@@ -9,6 +9,6 @@
         width = 130;
         height = 30;
       };
-    };
+    }; */
   };
 }
