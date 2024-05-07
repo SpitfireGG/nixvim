@@ -7,6 +7,7 @@
     ./keys.nix
     ./sets.nix
     ./highlight.nix
+    ./clipboard.nix
 
     ./plug/colorscheme/biscuit.nix
     ./plug/colorscheme/colorscheme.nix
@@ -29,17 +30,14 @@
     ./plug/lsp/trouble.nix
     ./plug/lsp/per/rustaceans.nix
     ./plug/lsp/per/clang.nix
-
     ./plug/snippets/luasnip.nix
 
     ./plug/statusline/lualine.nix
-    #./plug/statusline/staline.nix
-
     #./plug/treesitter/treesitter-context.nix
     ./plug/treesitter/treesitter-textobjects.nix
     ./plug/treesitter/treesitter.nix
 
-    ./plug/ui/alpha.nix
+
     ./plug/ui/btw.nix
     ./plug/ui/bufferline.nix
     ./plug/ui/noice.nix
@@ -48,10 +46,7 @@
     ./plug/ui/indent.nix
 
     ./plug/utils/comment.nix
-    #  ./plug/utils/copilot.nix
     ./plug/utils/flash.nix
-    #./plug/utils/hardtime.nix
-    #./plug/utils/harpoon.nix
     ./plug/utils/grapple.nix
     ./plug/utils/illuminate.nix
     ./plug/utils/nvim-autopairs.nix
