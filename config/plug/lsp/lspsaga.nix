@@ -122,12 +122,11 @@
         desc = "Hover";
         silent = true;
       };
-    }
-
+}
     {
       mode = "n";
-      key = "[[<C-x>]]";
-      action = "<cmd>Lspsaga outline<CR>";
+      key = "";
+      action = "<cmd>LSoutlineToggle<CR>";
       options = {
         desc = "Outline";
         silent = true;
