@@ -77,7 +77,7 @@
     {
       mode = "n";
       key = "<C>j";
-      action = "<CMD>bnext<cr>";
+      action = "<CMD>bn<cr>";
       options = {
         silent = true;
         desc = "Next Tab";
@@ -87,7 +87,7 @@
     {
       mode = "n";
       key = "<C>k";
-      action = "<CMD>bprevious<cr>";
+      action = "<CMD>bp<cr>";
       options = {
         silent = true;
         desc = "Next Tab";
@@ -195,7 +195,7 @@
       };
     }
 
-    {
+    /* {
       mode = "n";
       key = "<M-1>";
       action = "<CMD>ToggleTerm<CR>";
@@ -203,7 +203,7 @@
         silent = true;
         desc = "Popup terminal";
       };
-    }
+    } */
     {
       mode = "n";
       key = "<C-s>";
@@ -262,12 +262,12 @@
       options = {desc = "Use move command when line is highlighted ";};
     }
 
-    {
+    /* {
       mode = "v";
       key = "K";
       action = ":m '>-2<CR>gv=gv";
       options = {desc = "Use move command when line is highlighted ";};
-    }
+    } */
 
     {
       mode = "n";
@@ -415,7 +415,24 @@
       mode = "n";
       key = "<leader>4";
       action = "<CMD> Grapple select index=4<CR>";
-      options = {desc = "Grapple Select 4";};
+      options = {desc = "Grapple Select 3";};
+    }
+
+
+
+
+    {
+      mode = ["n" "v"];
+      key = "<";
+      action = "<gv";
+      options = {desc = "stay in indent mode";};
+    }
+
+    {
+      mode = ["n" "v"];
+      key = ">";
+      action = ">gv";
+      options = {desc = "stay in indent mode";};
     }
   ];
   extraConfigLua = ''
