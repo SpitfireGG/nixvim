@@ -19,7 +19,9 @@
         </br>
         <p>
             This will build the derivation (nvim package) in  the result/bin/ dir
-            do ./nivm to test 
+            </br>
+            then, do ./nivm to test 
+        </br>
             make an alias or something to access the nixvim derivation
         </p>
         </br>
