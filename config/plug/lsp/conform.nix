@@ -16,7 +16,7 @@
       typescriptreact = [["prettierd" "prettier"]];
       python = ["black"];
       lua = ["stylua"];
-      nix = ["alejandra"];
+      nix = ["nixfmt" "alejandra"];
       markdown = [["prettierd" "prettier"]];
       yaml = ["yamllint" "yamlfmt"];
       rust = ["rust-analyzer" "rustfmt"];
