@@ -13,7 +13,7 @@
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/cmp.nix
-    ./plug/completion/copilot-cmp.nix
+        #./plug/completion/copilot-cmp.nix
     ./plug/completion/lspkind.nix
     ./plug/completion/schemastore.nix
 
@@ -57,15 +57,15 @@
     ./plug/utils/toggleterm.nix
     ./plug/utils/fzf.nix
     ./plug/utils/sorround.nix
+    ./plug/utils/copilot.nix
   ];
   options = {
     theme = lib.mkOption {
-      default = "paradise";
+      default = "decay";
       type = lib.types.enum ["paradise" "decay" "mountain" "tokyonight" "everforest" "everblush" "jellybeans" "aquarium" "gruvbox"];
     };
   };
   config = {
-    # The base16 theme to use, if you want to use another theme, change it in colorscheme.nix
     theme = "paradise";
     extraConfigLua = ''
       _G.theme = "${config.theme}"
