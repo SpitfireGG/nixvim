@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{ config, lib, ... }: {
   imports = [
     ./keys.nix
     ./sets.nix
@@ -13,9 +9,7 @@
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/cmp.nix
-        #./plug/completion/copilot-cmp.nix
     ./plug/completion/lspkind.nix
-    ./plug/completion/schemastore.nix
 
     ./plug/git/gitlinker.nix
     ./plug/git/gitsigns.nix
@@ -37,7 +31,6 @@
     ./plug/treesitter/treesitter-textobjects.nix
     ./plug/treesitter/treesitter.nix
 
-
     ./plug/ui/btw.nix
     ./plug/ui/bufferline.nix
     ./plug/ui/noice.nix
@@ -57,12 +50,21 @@
     ./plug/utils/toggleterm.nix
     ./plug/utils/fzf.nix
     ./plug/utils/sorround.nix
-    ./plug/utils/copilot.nix
   ];
   options = {
     theme = lib.mkOption {
-      default = "decay";
-      type = lib.types.enum ["paradise" "decay" "mountain" "tokyonight" "everforest" "everblush" "jellybeans" "aquarium" "gruvbox"];
+      default = "paradise";
+      type = lib.types.enum [
+        "paradise"
+        "decay"
+        "mountain"
+        "tokyonight"
+        "everforest"
+        "everblush"
+        "jellybeans"
+        "aquarium"
+        "gruvbox"
+      ];
     };
   };
   config = {
