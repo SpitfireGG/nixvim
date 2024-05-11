@@ -67,7 +67,7 @@
 
       cmdheight = 0;
 
-      showmode = false;
+      showmode = true;
     };
   };
 }

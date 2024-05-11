@@ -11,25 +11,21 @@
           fetchingTimeout = 200;
           maxViewEntries = 30;
         };
-       snippet = {
-            expand = ''
-                function(args)
-                    require('luasnip').lsp_expand(args.body)
-                 end
-             '';
-            };
+        snippet = {
+          expand = ''
+            function(args)
+                require('luasnip').lsp_expand(args.body)
+             end
+          '';
+        };
         formatting = { fields = [ "kind" "abbr" "menu" ]; };
         sources = [
-          { 
-              name = "nvim_lsp"; 
-          }
+          { name = "nvim_lsp"; }
           {
             name = "luasnip"; # snippets
             keywordLength = 3;
           }
-          {
-              name = "emoji"; 
-            }
+          { name = "emoji"; }
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
@@ -66,56 +62,56 @@
     cmp-cmdline = { enable = true; }; # autocomplete for cmdlinea
   };
   extraConfigLua = ''
-       luasnip = require("luasnip")
-       kind_icons = {
-         Text = "󰊄",
-         Method = "",
-         Function = "󰡱",
-         Constructor = "",
-         Field = "",
-         Variable = "󱀍",
-         Class = "",
-         Interface = "",
-         Module = "󰕳",
-         Property = "",
-         Unit = "",
-         Value = "",
-         Enum = "",
-         Keyword = "",
-         Snippet = "",
-         Color = "",
-         File = "",
-         Reference = "",
-         Folder = "",
-         EnumMember = "",
-         Constant = "",
-         Struct = "",
-         Event = "",
-         Operator = "",
-         TypeParameter = "",
-       } 
+    luasnip = require("luasnip")
+    kind_icons = {
+      Text = "󰊄",
+      Method = "",
+      Function = "󰡱",
+      Constructor = "",
+      Field = "",
+      Variable = "󱀍",
+      Class = "",
+      Interface = "",
+      Module = "󰕳",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+    } 
 
-        local cmp = require'cmp'
+     local cmp = require'cmp'
 
-        cmp.setup.cmdline({'/', "?" }, {
-          sources = {
-            { name = 'buffer' }
-          }
-        })
+     cmp.setup.cmdline({'/', "?" }, {
+       sources = {
+         { name = 'buffer' }
+       }
+     })
 
-        cmp.setup.filetype('gitcommit', {
-          sources = cmp.config.sources({
-            { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-          }, {
-            { name = 'buffer' },
-          })
-        })
+     cmp.setup.filetype('gitcommit', {
+       sources = cmp.config.sources({
+         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+       }, {
+         { name = 'buffer' },
+       })
+     })
 
-        cmp.setup.cmdline(':', {
-          sources = cmp.config.sources({
-            { name = 'path' }
-          }, {
-            { name = 'cmdline' }
-          }),
-        })'';
+     cmp.setup.cmdline(':', {
+       sources = cmp.config.sources({
+         { name = 'path' }
+       }, {
+         { name = 'cmdline' }
+       }),
+     })'';
 }
