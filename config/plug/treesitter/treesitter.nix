@@ -17,10 +17,8 @@ in {
     enable = true;
     indent = true;
     folding = true;
-    ensureInstalled = true;
     languageRegister.nu = "nu";
     languageRegister.liq = "liquidsoap";
-    nixGrammars = true;
     nixvimInjections = true;
     grammarPackages =
       [

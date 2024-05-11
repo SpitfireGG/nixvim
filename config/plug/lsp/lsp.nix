@@ -13,17 +13,15 @@
         gopls = {enable = true;};
         terraformls = {enable = false;};
         tsserver = {enable = true;};
-        rust-analyzer = {
+        clangd = {enable = true;};
+        zls = {enable=true;};
+                rust-analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
         };
         htmx = {enable = true;};
-        clangd = {
-          enable = true;
-        };
         bashls = {enable = true;};
-        zls = {enable = false;};
         hls = {enable = false;};
         yamlls = {
           enable = true;

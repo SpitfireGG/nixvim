@@ -31,13 +31,12 @@
       };
     };
     lightbulb = {
-      enable = true;
-      sign = true;
+      enable = false;
+      sign = false;
       virtualText = true;
     };
     implement = {
       enable = false;
-      sign = false;
     };
     rename = {
       autoSave = false;
@@ -84,15 +83,15 @@
       };
     }
 
-    {
-      mode = "n";
-      key = "gl";
-      action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-      options = {
-        desc = "Goto Declaration";
-        silent = true;
-      };
-    }
+    # {
+    #   mode = "n";
+    #   key = "gD";
+    #   action = "<cmd>Lspsaga show_line_diagnostics<CR>";
+    #   options = {
+    #     desc = "Goto Declaration";
+    #     silent = true;
+    #   };
+    # }
 
     {
       mode = "n";
@@ -122,11 +121,12 @@
         desc = "Hover";
         silent = true;
       };
-}
+    }
+
     {
       mode = "n";
-      key = "";
-      action = "<cmd>LSoutlineToggle<CR>";
+      key = "<leader>cw";
+      action = "<cmd>Lspsaga outline<CR>";
       options = {
         desc = "Outline";
         silent = true;

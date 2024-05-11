@@ -16,12 +16,9 @@
       typescriptreact = [["prettierd" "prettier"]];
       python = ["black"];
       lua = ["stylua"];
-      nix = ["nixfmt" "alejandra"];
+      nix = ["alejandra"];
       markdown = [["prettierd" "prettier"]];
       yaml = ["yamllint" "yamlfmt"];
-      rust = ["rust-analyzer" "rustfmt"];
-      go = ["gofmt"];
-      c = ["clang-format"];
     };
   };
 }

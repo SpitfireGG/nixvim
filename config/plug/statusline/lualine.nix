@@ -47,7 +47,7 @@ in {
       lualine_b = [
         {
           name = "branch";
-          icon = "󰊢";
+          icon = "";
           color = {
             fg =
               if config.colorschemes.base16.enable
@@ -97,9 +97,9 @@ in {
           name = "filename";
           extraConfig = {
             symbols = {
-              modified = "";
-              removed = "";
-              added = "";
+              modified = "";
+              readonly = "";
+              unnamed = "";
             };
           };
           color = {

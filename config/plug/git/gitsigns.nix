@@ -6,22 +6,22 @@
       current_line_blame = true;
       signs = {
         add = {
-          text = "▍";
+          text = "┃";
         };
         change = {
-          text = "▎";
+          text = "│";
         };
         delete = {
-          text = "▏";
+          text = "∆";
         };
         topdelete = {
-          text = "‾";
+          text = "∑";
         };
         changedelete = {
           text = "╼";
         };
         untracked = {
-          text = "│";
+          text = "⏽ ";
         };
       };
     };
