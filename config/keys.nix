@@ -378,6 +378,24 @@
       action = "<CMD> Grapple select index=4<CR>";
       options = {desc = "Grapple Select 4";};
     }
+    
+    {
+      mode = "v";
+      key = "<";
+      action ="<gv";
+      options = {desc = "stay in indent mode";};
+    }
+
+    {
+
+      mode = "v";
+      key = ">";
+      action =">gv";
+      options = {desc = "stay in indent mode";};
+    }
+
+
+
   ];
   extraConfigLua = ''
     function ToggleLineNumber()
@@ -394,12 +412,14 @@
           vim.wo.relativenumber = false
         else
           vim.wo.relativenumber = true
-            vim.wo.number = false
+              vim.wo.number = false
             end
             end
 
             function ToggleWrap()
             vim.wo.wrap = not vim.wo.wrap
             end
+
   '';
+
 }
