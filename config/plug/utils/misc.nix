@@ -1,0 +1,6 @@
+{
+  plugins.surround = {
+    enable = true;
+ };
+
+}
