@@ -12,7 +12,6 @@
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/cmp.nix
-    #./plug/completion/copilot-cmp.nix
     ./plug/completion/lspkind.nix
     
     
@@ -27,13 +26,11 @@
     ./plug/lsp/hlchunk.nix
     ./plug/lsp/lsp.nix
     ./plug/lsp/lspsaga.nix
-    #./plug/lsp/none-ls.nix
     ./plug/lsp/trouble.nix
 
     ./plug/snippets/luasnip.nix
 
     ./plug/statusline/lualine.nix
-    #./plug/statusline/staline.nix
 
     #./plug/treesitter/treesitter-context.nix
     ./plug/treesitter/treesitter-textobjects.nix
@@ -57,6 +54,7 @@
     ./plug/utils/fzf.nix
     ./plug/utils/misc.nix
     ./plug/utils/indent.nix
+    ./plug/utils/toggleterm.nix
     
     
   ];
