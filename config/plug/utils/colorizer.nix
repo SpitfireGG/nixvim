@@ -1,11 +1,11 @@
 {
   plugins.nvim-colorizer = {
     enable =  true;
-    	bufTypes = {};
-      	user_default_options = {
+    
+      	userDefaultOptions = {
 		RGB = true; # #RGB hex codes
 		RRGGBB = true; # #RRGGBB hex codes
-		names = false; # "Name" codes like Blue or blue
+		names = true; # "Name" codes like Blue or blue
 		RRGGBBAA = true; # #RRGGBBAA hex codes
 		rgb_fn = true; # CSS rgb() and rgba() functions
 		hsl_fn = true; # CSS hsl() and hsla() functions
