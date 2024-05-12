@@ -55,6 +55,7 @@
     ./plug/utils/misc.nix
     ./plug/utils/indent.nix
     ./plug/utils/toggleterm.nix
+    ./plug/utils/colorizer.nix
     
     
   ];
@@ -70,5 +71,13 @@
     extraConfigLua = ''
       _G.theme = "${config.theme}"
     '';
+  autoCmd = [
+    {
+      event = [ "BufEnter" "BufWinEnter" ];
+      pattern = [ "*.*" ];
+      command = "<CMD> ColorizerToggle<CR>";
+    }
+  ];
   };
+
 }
