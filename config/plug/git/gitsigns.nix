@@ -11,7 +11,7 @@
         change = {
           text = "│";
         };
-        delete = {
+        untracked = {
           text = "∆";
         };
         topdelete = {
@@ -20,8 +20,8 @@
         changedelete = {
           text = "╼";
         };
-        untracked = {
-          text = "⏽ ";
+        delete = {
+          text = "⏽";
         };
       };
     };
