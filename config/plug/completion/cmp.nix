@@ -11,22 +11,27 @@
           fetchingTimeout = 200;
           maxViewEntries = 30;
         };
-        snippet = {expand = "luasnip";};
+        snippet.expand = ''
+          function(args)
+            require('luasnip').lsp_expand(args.body)
+          end
+          '';
+        
         formatting = {fields = ["kind" "abbr" "menu"];};
         sources = [
           {name = "nvim_lsp";}
+          {
+            name = "luasnip"; # snippets
+            keywordLength = 3;
+          }
           {name = "emoji";}
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            keywordLength = 3;
+            keywordLength = 1;
           }
           {
             name = "path"; # file system paths
-            keywordLength = 3;
-          }
-          {
-            name = "luasnip"; # snippets
             keywordLength = 3;
           }
         ];
@@ -49,6 +54,19 @@
         };
       };
     };
+
+    /* sorting.comparators = [
+      "require('cmp.config.compare').offset"
+      "require('cmp.config.compare').exact"
+      "require('cmp.config.compare').score"
+      "require('cmp.config.compare').recently_used"
+      "require('cmp.config.compare').locality"
+      "require('cmp.config.compare').kind"
+      "require('cmp.config.compare').length"
+      "require('cmp.config.compare').order"
+    ]; */
+
+
     cmp-nvim-lsp = {enable = true;}; # lsp
     cmp-buffer = {enable = true;};
     cmp-path = {enable = true;}; # file system paths
