@@ -395,6 +395,13 @@
     }
 
 
+    {
+
+      mode = "n";
+      key = "<C-x>";
+      action ="<CMD>Lspsaga outline<CR>";
+      options = {desc = "Toggle outline";};
+    }
 
   ];
   extraConfigLua = ''

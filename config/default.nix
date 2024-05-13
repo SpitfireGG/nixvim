@@ -57,6 +57,9 @@
     ./plug/utils/toggleterm.nix
     ./plug/utils/colorizer.nix
     
+
+
+    ./autocmd.nix
     
   ];
   options = {
@@ -71,13 +74,6 @@
     extraConfigLua = ''
       _G.theme = "${config.theme}"
     '';
-  autoCmd = [
-    {
-      event = [ "BufEnter" "BufWinEnter" ];
-      pattern = [ "*.*" ];
-      command = "<CMD> ColorizerToggle<CR>";
-    }
-  ];
   };
 
 }
