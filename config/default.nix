@@ -7,13 +7,14 @@
     ./keys.nix
     ./sets.nix
     ./highlight.nix
+    ./autocmd.nix
+
 
     ./plug/colorscheme/biscuit.nix
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/cmp.nix
     ./plug/completion/lspkind.nix
-    
     
 
     ./plug/git/gitlinker.nix
@@ -59,7 +60,6 @@
     
 
 
-    ./autocmd.nix
     
   ];
   options = {
