@@ -4,7 +4,7 @@
     autoCmd = [
     {
       event = [ "BufEnter" "BufWinEnter" ];
-            pattern = [ "*.c" "*.h" "*.css" ];
+            pattern = [ "*.c" "*.h" ];
       command = "<CMD>ColorizerToggle<CR>";
     }
   ];
