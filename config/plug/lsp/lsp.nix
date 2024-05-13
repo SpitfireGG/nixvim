@@ -69,7 +69,7 @@
             desc = "Line Diagnostics";
           };
           "[d" = {
-            action = "goto_next";
+          action = "goto_next";
             desc = "Next Diagnostic";
           };
           "]d" = {
@@ -81,7 +81,14 @@
     };
   };
   extraConfigLua = ''
+
+
+    
+
+
     local _border = "rounded"
+    local signs = { Error = "󱑽 ", Warn = "󱑼 ", Hint = "󱑻 ", Info = " " }
+
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
       vim.lsp.handlers.hover, {
@@ -96,8 +103,27 @@
     )
 
     vim.diagnostic.config{
-      float={border=_border}
+          virtual_text = {
+        prefix = " ", -- Could be '■', '▎', 'x'
+    },
+      float={
+        border=_border,
+         focus = true,
+        focusable = false,
+        style = "minimal",
+        source = "always",
+        border = "rounded",
+        suffix = "",
+        header = { "  Checkup" },
+        prefix = function(_, _, _)
+            return "  ", "String"
+        end,
+        }
     };
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    end
 
     require('lspconfig.ui.windows').default_options = {
       border = _border
