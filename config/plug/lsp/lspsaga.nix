@@ -155,7 +155,7 @@
 
     {
       mode = "n";
-      key = "<leader>cd";
+      key = "<leader>zl";
       action = "<cmd>Lspsaga show_line_diagnostics<CR>";
       options = {
         desc = "Line Diagnostics";
