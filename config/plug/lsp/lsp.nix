@@ -7,7 +7,7 @@
         eslint = {enable = true;};
         html = {enable = true;};
         lua-ls = {enable = true;};
-        nil_ls = {enable = true;};
+        nixd = {enable = true;};
         marksman = {enable = false;};
         pyright = {enable = false;};
         gopls = {enable = true;};
@@ -64,7 +64,7 @@
           };
         };
         diagnostic = {
-          "<leader>cd" = {
+          "<leader>zz" = {
             action = "open_float";
             desc = "Line Diagnostics";
           };
@@ -87,7 +87,7 @@
 
 
     local _border = "rounded"
-    local signs = { Error = "󱑽 ", Warn = "󱑼 ", Hint = "󱑻 ", Info = " " }
+    local signs = { Error = "𝝨 ", Warn = "𝝍 ", Hint = "𝝓 ", Info = "𝝮 " }
 
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
