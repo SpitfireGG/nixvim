@@ -34,35 +34,20 @@
 ## 🚀 Installation
 
 <!-- Clear options for setup: one-liner for simplicity, manual for control -->
-### One-Liner
+### One-Liner (run without Installation)
 ```bash
 nix run 'github:spitfiregg/nixvim'
+```
 
 
-
-Plug and play—straight from the cloud.
-
-Manual Setup
-Clone or Copy: Grab this repo into an empty directory:
-bash
-Wrap
-Copy
+### Installation
+```bash
 git clone https://github.com/SpitfireGG/nixvim.git && cd nixvim
-Update and Build: Lock dependencies and build the derivation:
-bash
-Wrap
-Copy
 nix flake update && nix build .#packages.x86_64-linux.default
-Test It: Fire up NixVim:
-bash
-Wrap
-Copy
 ./result/bin/nvim
-Make It Permanent: Keep it handy with an alias or symlink:
-Alias: alias nvim='~/path/to/nixvim/result/bin/nvim' (add to ~/.bashrc or equivalent)
-Symlink: ln -s ./result/bin/nvim ~/.local/bin/nvim
-<!-- Pro tip in a blockquote for that ricer flair -->
-Pro Tip: The derivation lands in result/bin/. Tweak your shell to make it your daily driver!
+```
+
+
 
 <!-- Section separator -->
 🎨 Features
