@@ -1,44 +1,77 @@
 {
-  description = "A nixvim configuration";
+  description = "A nixvim configuration with custom plugins";
 
   inputs = {
     nixvim.url = "github:nix-community/nixvim";
     flake-utils.url = "github:numtide/flake-utils";
+    /*
+      typr-nvim = {
+        url = "github:nvzone/typr";
+        flake = false;
+      };
+      volt-nvim = {
+        url = "github:nvzone/volt";
+        flake = false;
+      };
+    */
   };
- 
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixvim,
-    flake-utils,
-    ...
-  } @ inputs: let
-    config = import ./config; # import the module directly
-  in
-    flake-utils.lib.eachDefaultSystem (system: let
-      nixvimLib = nixvim.lib.${system};
-      pkgs = import nixpkgs {inherit system;};
-      nixvim' = nixvim.legacyPackages.${system};
-      nvim = nixvim'.makeNixvimWithModule {
-        inherit pkgs;
-        module = config;
-      };
-    in {
-      formatter = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixvim,
+      flake-utils,
+      ...
+    }@inputs:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        # Import nixpkgs for the current system
+        pkgs = import nixpkgs { inherit system; };
 
-      checks = {
-        default = nixvimLib.check.mkTestDerivationFromNvim {
-          inherit nvim;
-          name = "My nixvim configuration";
+        # NixVim utilities
+        nixvimLib = nixvim.lib.${system};
+        nixvim' = nixvim.legacyPackages.${system};
+
+        # Define the config module with all required arguments
+        configModule =
+          {
+            lib,
+            config,
+            pkgs,
+            ...
+          }:
+          (import ./config {
+            inherit
+              inputs
+              lib
+              config
+              pkgs
+              ;
+          });
+
+        # Build NixVim with the module
+        nvim = nixvim'.makeNixvimWithModule {
+          inherit pkgs;
+          module = configModule;
         };
-      };
+      in
+      {
+        formatter = pkgs.nixpkgs-fmt;
 
-      packages = {
-        # Lets you run `nix run .` to start nixvim
-        default = nvim;
-      };
+        checks = {
+          default = nixvimLib.check.mkTestDerivationFromNvim {
+            inherit nvim;
+            name = "My nixvim configuration";
+          };
+        };
 
-      devShells.default = import ./shell.nix {inherit pkgs;};
-    });
+        packages = {
+          default = nvim;
+        };
+
+        devShells.default = import ./shell.nix { inherit pkgs; };
+      }
+    );
 }
