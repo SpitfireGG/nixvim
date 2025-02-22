@@ -7,6 +7,7 @@
 in {
   config = lib.mkIf config.colorschemes.base16.enable {
     highlight = {
+
       CursorLine = {
         fg = "none";
         bg = "none";
@@ -116,6 +117,8 @@ in {
         fg = colors.base01;
         bg = colors.base01;
       };
+        
+    
     };
   };
 }
