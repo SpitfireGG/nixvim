@@ -2,7 +2,7 @@
   plugins.treesitter-textobjects = {
     enable = false;
     select = {
-      enable = true;
+      enable = false;
       lookahead = true;
       keymaps = {
         "aa" = "@parameter.outer";

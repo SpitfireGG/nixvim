@@ -1,28 +1,58 @@
 {
   plugins = {
-    lsp-format = {enable = true;};
+    lsp-format = {
+      enable = true;
+    };
     lsp = {
       enable = true;
       servers = {
-        eslint = {enable = true;};
-        html = {enable = true;};
-        lua-ls = {enable = true;};
-        nixd = {enable = true;};
-        marksman = {enable = false;};
-        pyright = {enable = false;};
-        gopls = {enable = true;};
-        terraformls = {enable = false;};
-        tsserver = {enable = true;};
-        clangd = {enable = true;};
-        zls = {enable=true;};
-                rust-analyzer = {
+        eslint = {
+          enable = true;
+        };
+        html = {
+          enable = true;
+        };
+        lua_ls = {
+          enable = true;
+        };
+        nixd = {
+          enable = true;
+        };
+        marksman = {
+          enable = false;
+        };
+        pyright = {
+          enable = false;
+        };
+        gopls = {
+          enable = true;
+        };
+        terraformls = {
+          enable = false;
+        };
+        ts_ls = {
+          enable = true;
+        };
+        clangd = {
+          enable = true;
+        };
+        zls = {
+          enable = true;
+        };
+        rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
         };
-        htmx = {enable = true;};
-        bashls = {enable = true;};
-        hls = {enable = false;};
+        htmx = {
+          enable = true;
+        };
+        bashls = {
+          enable = true;
+        };
+        hls = {
+          enable = false;
+        };
         yamlls = {
           enable = true;
         };
@@ -69,7 +99,7 @@
             desc = "Line Diagnostics";
           };
           "[d" = {
-          action = "goto_next";
+            action = "goto_next";
             desc = "Next Diagnostic";
           };
           "]d" = {
@@ -83,7 +113,7 @@
   extraConfigLua = ''
 
 
-    
+
 
 
     local _border = "rounded"

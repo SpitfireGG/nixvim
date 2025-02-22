@@ -1,5 +1,5 @@
-{
-  plugins.none-ls = {
+{ pkgs, ... }:{
+ plugins.none-ls = {
     enable = true;
     enableLspFormat = true;
     updateInInsert = false;
@@ -13,7 +13,10 @@
         yamllint.enable = true;
       };
       formatting = {
-        alejandra.enable = true;
+        nixfmt = {
+          enable = true;
+          package = pkgs.nixfmt-rfc-style;
+        };
         black = {
           enable = true;
           withArgs = ''
@@ -48,3 +51,7 @@
     }
   ];
 }
+
+
+
+

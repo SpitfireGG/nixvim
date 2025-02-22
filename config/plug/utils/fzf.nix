@@ -1,7 +1,6 @@
 {
   plugins.fzf-lua = {
     enable = true;
-    iconsEnabled = true;
     keymaps = {
       "<C-p>" = {
         action = "git_files";

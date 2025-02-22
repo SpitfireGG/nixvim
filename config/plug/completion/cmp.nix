@@ -1,11 +1,15 @@
 {
   plugins = {
-    cmp-emoji = {enable = true;};
+    cmp-emoji = {
+      enable = true;
+    };
     cmp = {
       enable = true;
       settings = {
         autoEnableSources = true;
-        experimental = {ghost_text = true;};
+        experimental = {
+          ghost_text = true;
+        };
         performance = {
           debounce = 60;
           fetchingTimeout = 200;
@@ -15,16 +19,22 @@
           function(args)
             require('luasnip').lsp_expand(args.body)
           end
-          '';
-        
-        formatting = {fields = ["kind" "abbr" "menu"];};
+        '';
+
+        formatting = {
+          fields = [
+            "kind"
+            "abbr"
+            "menu"
+          ];
+        };
         sources = [
-          {name = "nvim_lsp";}
+          { name = "nvim_lsp"; }
           {
             name = "luasnip"; # snippets
             keywordLength = 3;
           }
-          {name = "emoji";}
+          { name = "emoji"; }
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
@@ -37,8 +47,12 @@
         ];
 
         window = {
-          completion = {border = "solid";};
-          documentation = {border = "solid";};
+          completion = {
+            border = "solid";
+          };
+          documentation = {
+            border = "solid";
+          };
         };
 
         mapping = {
@@ -55,23 +69,34 @@
       };
     };
 
-    /* sorting.comparators = [
-      "require('cmp.config.compare').offset"
-      "require('cmp.config.compare').exact"
-      "require('cmp.config.compare').score"
-      "require('cmp.config.compare').recently_used"
-      "require('cmp.config.compare').locality"
-      "require('cmp.config.compare').kind"
-      "require('cmp.config.compare').length"
-      "require('cmp.config.compare').order"
-    ]; */
+    /*
+         sorting.comparators = [
+        "require('cmp.config.compare').offset"
+        "require('cmp.config.compare').exact"
+        "require('cmp.config.compare').score"
+        "require('cmp.config.compare').recently_used"
+        "require('cmp.config.compare').locality"
+        "require('cmp.config.compare').kind"
+        "require('cmp.config.compare').length"
+        "require('cmp.config.compare').order"
+      ];
+    */
 
-
-    cmp-nvim-lsp = {enable = true;}; # lsp
-    cmp-buffer = {enable = true;};
-    cmp-path = {enable = true;}; # file system paths
-    cmp_luasnip = {enable = true;}; # snippets
-    cmp-cmdline = {enable = true;}; # autocomplete for cmdline
+    cmp-nvim-lsp = {
+      enable = true;
+    }; # lsp
+    cmp-buffer = {
+      enable = true;
+    };
+    cmp-path = {
+      enable = true;
+    }; # file system paths
+    cmp_luasnip = {
+      enable = true;
+    }; # snippets
+    cmp-cmdline = {
+      enable = true;
+    }; # autocomplete for cmdline
   };
   extraConfigLua = ''
           luasnip = require("luasnip")

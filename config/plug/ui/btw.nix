@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   extraPlugins = with pkgs.vimUtils; [
     (buildVimPlugin {
       pname = "btw.nvim";
@@ -14,7 +15,7 @@
 
   extraConfigLua = ''
     require('btw').setup({
-      text = "I use Neovim (and NixOS, BTW)",
+      text = "I use Nvim BTW",
     })
   '';
 }
