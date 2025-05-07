@@ -12,10 +12,10 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/home.png" alt="Home Preview" width="40%">
-  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/cmp.png" alt="Completion Preview" width="40%">
-  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/mkdown.png" alt="Terminal Preview" width="40%">
-  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/term.png" alt="Terminal Preview" width="60%">
+  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/home.png" alt="Home Preview" width="45%">
+  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/cmp.png" alt="Completion Preview" width="45%">
+  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/mkdown.png" alt="Terminal Preview" width="60%">
+  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/term.png" alt="Terminal Preview" width="100%">
   <br>
 </p>
 
