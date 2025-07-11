@@ -5,6 +5,14 @@
       logger = {
         level = "warn"; # “off”, “error”, “warn”, “info”, “debug”, “trace”
       };
+      notification = {
+        window = {
+          winblend = 100;
+        };
+      };
+      text = {
+        spinner = "dots";
+      };
     };
   };
 }

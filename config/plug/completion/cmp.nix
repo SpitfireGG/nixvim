@@ -29,20 +29,26 @@
           ];
         };
         sources = [
-          { name = "nvim_lsp"; }
+          {
+            name = "nvim_lsp";
+            priority = 1000;
+          }
           {
             name = "luasnip"; # snippets
             keywordLength = 3;
+            priority = 700;
           }
           { name = "emoji"; }
           {
             name = "buffer"; # text within current buffer
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keywordLength = 1;
+            priority = 300;
           }
           {
             name = "path"; # file system paths
             keywordLength = 3;
+            priority = 500;
           }
         ];
 

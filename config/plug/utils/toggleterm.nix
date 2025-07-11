@@ -7,6 +7,7 @@
       close_on_exit = false; # Changed to false to debug shell exit issues
       shade_terminals = true;
       shading_factor = 2;
+      start_in_insert = true;
 
       direction = "float";
       hide_numbers = true;
@@ -25,7 +26,7 @@
       insert_mappings = false; # Disable to prevent toggle loop
       terminal_mappings = false; # Disable to prevent toggle loop
 
-      shell = "bash"; # Corrected to use Neovim’s shell
+      shell = "fish"; # Corrected to use Neovim’s shell
       size = 10;
       float_opts = {
         border = "curved";

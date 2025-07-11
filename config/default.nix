@@ -1,13 +1,12 @@
 {
+  inputs,
   config,
   lib,
   ...
-}:
-{
+}: {
   imports = [
     ./keys.nix
     ./sets.nix
-    ./highlight.nix
     ./autocmd.nix
 
     ./plug/colorscheme/biscuit.nix
@@ -15,23 +14,26 @@
 
     ./plug/completion/cmp.nix
     ./plug/completion/lspkind.nix
+    ./plug/completion/copilot-cmp.nix
 
     ./plug/git/gitlinker.nix
     ./plug/git/gitsigns.nix
-    ./plug/git/lazygit.nix
+    # ./plug/git/lazygit.nix
+    ./plug/git/fuzitive.nix
     ./plug/git/worktree.nix
 
     ./plug/lsp/conform.nix
     ./plug/lsp/fidget.nix
     ./plug/lsp/lsp.nix
     ./plug/lsp/lspsaga.nix
-    ./plug/lsp/trouble.nix
+
+    ./plug/lsp/tiny_diagnostic.nix
 
     ./plug/snippets/luasnip.nix
 
     ./plug/statusline/lualine.nix
 
-    #./plug/treesitter/treesitter-context.nix
+    ./plug/treesitter/treesitter-context.nix
     ./plug/treesitter/treesitter-textobjects.nix
     ./plug/treesitter/treesitter.nix
 
@@ -49,7 +51,7 @@
     ./plug/utils/undotree.nix
     ./plug/utils/ufo.nix
     ./plug/utils/whichkey.nix
-    ./plug/utils/fzf.nix
+    #   ./plug/utils/fzf.nix
     ./plug/utils/indent.nix
     ./plug/utils/toggleterm.nix
     ./plug/utils/colorizer.nix
@@ -57,10 +59,13 @@
     ./plug/utils/markdown-prev.nix
     ./plug/utils/lz-n.nix
     ./plug/utils/mini-nvim/default.nix
+    ./plug/ui/transparent.nix
+
+    # debugger
   ];
   options = {
     theme = lib.mkOption {
-      default = "kanagawa-waves";
+      default = "gruvbox";
       type = lib.types.enum [
         "paradise"
         "decay"
@@ -71,15 +76,19 @@
         "jellybeans"
         "aquarium"
         "gruvbox"
+        "gruvbox_mt_hard"
         "kanagawa-waves"
+        "nord-chime"
       ];
     };
   };
+
   config = {
-    # The base16 theme to use, if you want to use another theme, change it in colorscheme.nix
-    theme = "kanagawa-waves";
-    extraConfigLua = ''
-      _G.theme = "${config.theme}"
-    '';
+    theme = "gruvbox_mt_hard";
+    extraConfigLua =
+      lib.mkIf (config.theme != "gruvbox_mt_hard")
+      ''
+        _G.theme = "${config.theme}"
+      '';
   };
 }
