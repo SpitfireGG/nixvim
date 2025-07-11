@@ -1,17 +1,22 @@
-{config, ...}: let
-  lua = x: {__raw = x;};
-in {
+{ config, ... }:
+let
+  lua = x: { __raw = x; };
+in
+{
   colorschemes = {
     base16 = {
-      enable = true;
+      enable = false;
       setUpBar = false;
-      colorscheme = import ../../colors/${config.theme}.nix {};
+      colorscheme = import ../../colors/${config.theme}.nix { };
     };
     gruvbox = {
       enable = false;
       settings = {
-        transparent_mode = true;
+        transparent_mode = false;
       };
+    };
+    ayu = {
+      enable = false;
     };
     tokyonight = {
       enable = false;
@@ -20,7 +25,7 @@ in {
         transparent = true;
         onHighlights = ''
           function(hl, c)
-              local prompt = "#2d3149"
+              local prompt = "#272B33"
               hl.TelescopeNormal = {
                   bg = c.bg_dark,
                   fg = c.fg_dark,
@@ -56,11 +61,12 @@ in {
     rose-pine = {
       enable = false;
       settings = {
-        style = "main"; #  "main", "moon", "dawn" or raw lua code
+        style = "moon"; # "main", "moon", "dawn" or raw lua code
         styles = {
-          bold = false;
+          bold = true;
           italic = false;
           transparency = true;
+          dark_variant = "main";
         };
         transparentBackground = true;
         highlightGroups = {
@@ -79,6 +85,61 @@ in {
         };
       };
     };
+
+    monokai-pro = {
+      enable = true;
+      settings = {
+        transparent_background = true;
+        devicons = true;
+        filter = "spectrum";
+        terminal_colors = true;
+        background-clear = [
+          "toggleterm"
+          "telescope"
+          "renamer"
+          "notify"
+          "cmp"
+          "bufferline"
+        ];
+        plugins = {
+          bufferline = {
+            bold = true;
+            underline_fill = true;
+            underline_selected = true;
+            underline_visible = true;
+          };
+          indent_blankline = {
+            context_highlight = "default";
+            context_start_underline = true;
+          };
+        };
+        annotation = {
+          italic = false;
+        };
+        comment = {
+          italic = true;
+        };
+        keyword = {
+          italic = false;
+        };
+        parameter = {
+          italic = false;
+        };
+        storageclass = {
+          italic = false;
+        };
+        structure = {
+          italic = false;
+        };
+        tag_attribute = {
+          italic = false;
+        };
+        type = {
+          italic = false;
+        };
+      };
+    };
+
     catppuccin = {
       enable = false;
       settings = {
@@ -111,10 +172,10 @@ in {
               background = true;
             };
             underlines = {
-              errors = ["underline"];
-              hints = ["underline"];
-              information = ["underline"];
-              warnings = ["underline"];
+              errors = [ "underline" ];
+              hints = [ "underline" ];
+              information = [ "underline" ];
+              warnings = [ "underline" ];
             };
           };
         };
