@@ -9,7 +9,7 @@
 <br>
 
 <p align="center">
-  <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/combined.png" alt="Nixvim nixos" width="49%">
+  <img src="preview/combined0.png" alt="Nixvim nixos" width="49%">
 </p>
 
 ---
