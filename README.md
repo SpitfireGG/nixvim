@@ -9,7 +9,7 @@
 <br>
 
 <p align="center">
-  <img src="preview/combined0.png" alt="Nixvim nixos" width="49%">
+  <img src="preview/combined0.png" alt="Nixvim nixos" width="60%">
 </p>
 
 ---
