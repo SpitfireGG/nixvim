@@ -5,7 +5,10 @@
 
 ---
 
+og
+
 ## Installation:
+
 <details>
     run :
             nix run 'github:spitfiregg/nixvim'
@@ -44,9 +47,11 @@
 ## 🚀 Installation
 
 ### One-Liner (run without Installation)
+
 ```bash
 nix run 'github:spitfiregg/nixvim'
 ```
+
 <p align="center">
   <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/home.png" alt="Home Preview" width="40%">
   <img src="https://github.com/SpitfireGG/nixvim/raw/main/preview/cmp.png" alt="Completion Preview" width="40%">
@@ -63,9 +68,11 @@ nix run 'github:spitfiregg/nixvim'
 ## 🚀 Installation
 
 ### One-Liner (run without Installation)
+
 ```bash
 nix run 'github:spitfiregg/nixvim'
 ```
+
 ---
 
 <p> Credit to the original owner ( elyth ) for the such an awesome config </p>
