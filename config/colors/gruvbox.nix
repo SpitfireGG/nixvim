@@ -1,4 +1,4 @@
-_= {
+_ :  {
   base00 = "#1a1a1a"; # Darkest background, even deeper than original base00
   base01 = "#242424"; # Darker secondary background
   base02 = "#2e2e2e"; # Deeper tertiary background

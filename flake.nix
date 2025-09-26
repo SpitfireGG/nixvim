@@ -5,48 +5,40 @@
     nixvim.url = "github:nix-community/nixvim";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    #stylix = {
-    #url = "github:danth/stylix";
-    # inputs.nixpkgs.follows = "nixpkgs";
-    #};
   };
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixvim,
-      flake-utils,
-      ...
-    }@inputs:
+
+  outputs = {
+    self,
+    nixpkgs,
+    nixvim,
+    flake-utils,
+    ...
+  } @ inputs:
     flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
+      system: let
+        pkgs = import nixpkgs {inherit system;};
 
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};
 
-        configModule =
-          {
-            lib,
-            config,
-            pkgs,
-            ...
-          }:
-          (import ./config {
-            inherit
-              inputs
-              lib
-              config
-              pkgs
-              ;
-          });
+        configModule = {
+          lib,
+          config,
+          pkgs,
+          ...
+        }: (import ./config {
+          inherit
+            inputs
+            lib
+            config
+            pkgs
+            ;
+        });
         nvim = nixvim'.makeNixvimWithModule {
           inherit pkgs;
           module = configModule;
         };
-      in
-      {
+      in {
         formatter = pkgs.nixpkgs-fmt;
         checks = {
           default = nixvimLib.check.mkTestDerivationFromNvim {
@@ -57,7 +49,9 @@
         packages = {
           default = nvim;
         };
-        devShells.default = import ./shell.nix { inherit pkgs; };
+        devShells.default = import ./shell.nix {
+          inherit pkgs;
+        };
       }
     );
 }
