@@ -2,7 +2,7 @@
   
   <h1>❄️ NixVim</h1>
   
-  <p>A sleek, minimal, and standalone Neovim configuration built with Nix.</p>
+  <p>A sleek, minimal, and standalone Nixvim configuration.</p>
   
 </div>
 
@@ -18,7 +18,6 @@
 
 - **Declarative Management**: Entirely managed with Nix for reproducible builds.
 - **Modern UI**: A clean and distraction-free user interface.
-- **Fast & Lightweight**: Optimized for performance with `lazy.nvim`.
 - **Smart Completion**: Powered by `blink-cmp`.
 - **LSP Ready**: Built-in Language Server Protocol support for intelligent coding.
 - **Fuzzy Finding**: Effortless navigation with `telescope.nvim`.
