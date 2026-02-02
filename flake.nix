@@ -1,12 +1,10 @@
 {
   description = "A nixvim configuration with custom plugins";
-
   inputs = {
     nixvim.url = "github:nix-community/nixvim";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-
   outputs = {
     self,
     nixpkgs,
