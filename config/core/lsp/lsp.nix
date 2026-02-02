@@ -1,36 +1,91 @@
 {
   lib,
-  pkgs,
+  system,
+  pkgs ? import <nixpkgs> {},
   ...
-}:
-{
+}: {
   plugins = {
-    # Completion engine - crucial for LSP functionality
     cmp = {
       enable = false;
       settings = {
+        autoEnableSources = true;
+        experimental = {
+          ghost_text = true;
+        };
+        performance = {
+          debounce = 60;
+          fetchingTimeout = 200;
+          maxViewEntries = 30;
+        };
         snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+        formatting = {
+          fields = [
+            "kind"
+            "abbr"
+            "menu"
+          ];
+          format = ''
+            function(entry, vim_item)
+              local kind_icons = {
+                Text = "󰊄",
+                Method = "",
+                Function = "󰡱",
+                Constructor = "",
+                Field = "",
+                Variable = "󱀍",
+                Class = "",
+                Interface = "",
+                Module = "󰕳",
+                Property = "",
+                Unit = "",
+                Value = "",
+                Enum = "",
+                Keyword = "",
+                Snippet = "",
+                Color = "",
+                File = "",
+                Reference = "",
+                Folder = "",
+                EnumMember = "",
+                Constant = "",
+                Struct = "",
+                Event = "",
+                Operator = "",
+                TypeParameter = "",
+              }
+              vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+              return vim_item
+            end
+          '';
+        };
+        window = {
+          completion = {
+            border = "rounded";
+          };
+          documentation = {
+            border = "rounded";
+          };
+        };
+
         mapping = {
           "<C-b>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.abort()";
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" =
-            "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_next_item() else fallback() end end, {'i', 's'})";
-          "<S-Tab>" =
-            "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_prev_item() else fallback() end end, {'i', 's'})";
+          "<Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_next_item() else fallback() end end, {'i', 's'})";
+          "<S-Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_prev_item() else fallback() end end, {'i', 's'})";
         };
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "buffer"; }
-          { name = "path"; }
+          {name = "nvim_lsp";}
+          {name = "luasnip";}
+          {name = "buffer";}
+          {name = "path";}
+          {name = "emoji";}
         ];
       };
     };
 
-    # Snippet engine
     luasnip.enable = true;
 
     lsp-format = {
@@ -43,26 +98,66 @@
         eslint.enable = false;
         qmlls = {
           enable = false;
-          cmd = [
-            "qmlls"
-            "-E"
+          cmd = ["${pkgs.qt6.qtdeclarative}/bin/qmlls"];
+          filetypes = [
+            "qml"
+            "qmljs"
+          ];
+          rootMarkers = [
+            ".qmlls.ini"
+            ".git"
+            "CMakeLists.txt"
+            "*.pro"
+          ];
+        };
+        cssls = {
+          enable = true;
+          filetypes = [
+            "css"
+            "scss"
+            "html"
+            "htmx"
+            "js"
           ];
         };
         lua_ls.enable = false;
         gopls.enable = true;
         ts_ls = {
-          enable = false;
+          enable = true;
           filetypes = [
             "cshtml"
             "razor"
             "cs"
+            "tsx"
           ];
         };
-        clangd.enable = true;
-
-        # Optimized OmniSharp configuration
-        omnisharp = {
+        tailwindcss.enable = true;
+        html.enable = true;
+        clangd = {
           enable = true;
+          rootMarkers = [
+            "compile_commands.json"
+            ".clangd"
+            ".clang-format"
+            ".clang-tidy"
+            "compile_flags.txt"
+            "configure.ac"
+            ".git"
+          ];
+          cmd = [
+            "${pkgs.llvmPackages_20.clang-tools}/bin/clangd"
+            "--background-index"
+            "--header-insertion-decorators"
+            "--experimental-modules-support"
+            "--all-scopes-completion"
+            "--clang-tidy"
+            "--log=verbose"
+            "--query-driver=/**/*"
+          ];
+        };
+
+        omnisharp = {
+          enable = false;
           settings = {
             enableMsBuildLoadProjectsOnDemand = true;
             enableImportCompletion = true;
@@ -79,7 +174,7 @@
             "asm"
             "S"
           ];
-          cmd = [ "asm-lsp" ];
+          cmd = ["asm-lsp"];
         };
 
         bashls = {
@@ -93,10 +188,6 @@
             shfmt = {
               enable = true;
               executablePath = "${lib.getExe pkgs.shfmt}";
-              shfmtArguments = [
-                "-i"
-                "2"
-              ];
             };
             hover = {
               displayFormat = "plaintext";
@@ -107,14 +198,14 @@
           };
         };
 
-        yamlls.enable = true;
+        yamlls.enable = false;
 
-        # Choose ONE Nix LSP - nixd is more modern
         nixd = {
           enable = true;
           settings = {
+            options.nixvim.expr = "self.packages.${pkgs.system}.default.options";
             formatting = {
-              command = [ "${lib.getExe pkgs.alejandra}" ];
+              command = ["${lib.getExe pkgs.alejandra}"];
             };
             evaluation = {
               enable = true;
@@ -149,7 +240,6 @@
           };
         };
 
-        # Disable nil_ls to avoid conflicts
         nil_ls.enable = false;
       };
 
@@ -216,13 +306,13 @@
     local _border = "rounded"
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-      vim.lsp.handlers.hover, {
+      vim.lsp.handlers["textDocument/hover"], {
         border = _border
       }
     )
 
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-      vim.lsp.handlers.signature_help, {
+      vim.lsp.handlers["textDocument/signatureHelp"], {
         border = _border
       }
     )
@@ -231,30 +321,22 @@
       float={border=_border}
     };
 
-    require('lspconfig.ui.windows').default_options = {
-      border = _border
-    }
+    -- require('lspconfig.ui.windows').default_options = {
+    --   border = _border
+    -- }
 
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+    local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = "»" }
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    end
 
     vim.diagnostic.config({
-      signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = signs.Error,
-          [vim.diagnostic.severity.WARN] = signs.Warn,
-          [vim.diagnostic.severity.INFO] = signs.Info,
-          [vim.diagnostic.severity.HINT] = signs.Hint,
-        },
-        numhl = {
-          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-        },
-      },
+      virtual_text = true,
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
     })
-
-
-
   '';
 }

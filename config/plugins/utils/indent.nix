@@ -3,11 +3,12 @@
     enable = true;
     settings = {
       indent = {
-        char = "▏";
+        char = "│";
       };
       scope = {
         show_start = false;
         show_end = false;
+        show_exact_scope = true;
       };
       exclude = {
         buftypes = [

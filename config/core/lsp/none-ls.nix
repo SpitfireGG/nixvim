@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   plugins.none-ls = {
     enable = true;
     enableLspFormat = true;
@@ -17,6 +16,10 @@
         dotenv_linter.enable = true;
       };
       formatting = {
+        qmlformat = {
+          enable = true;
+        };
+
         nixfmt = {
           enable = true;
           package = pkgs.nixfmt-rfc-style;

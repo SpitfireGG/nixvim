@@ -58,11 +58,82 @@
       };
     }
 
+    # Keybindings to open grug-far
+    {
+      mode = "n";
+      key = "<leader>sr";
+      action = "<cmd>lua require('grug-far').open()<cr>";
+      options = {
+        desc = "Search and Replace (grug-far)";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>sw";
+      action = "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<cr>";
+      options = {
+        desc = "Search and Replace current word";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>sW";
+      action = "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cWORD>') } })<cr>";
+      options = {
+        desc = "Search and Replace current WORD";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "v";
+      key = "<leader>sr";
+      action = "<cmd>lua require('grug-far').with_visual_selection({ prefills = { paths = vim.fn.expand('%') } })<cr>";
+      options = {
+        desc = "Search and Replace selection";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>sf";
+      action = "<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<cr>";
+      options = {
+        desc = "Search and Replace in current file";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>sF";
+      action = "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>'), paths = vim.fn.expand('%') } })<cr>";
+      options = {
+        desc = "Search and Replace word in current file";
+        silent = true;
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>st";
+      action = "<cmd>lua require('grug-far').toggle_instance()<cr>";
+      options = {
+        desc = "Toggle grug-far window";
+        silent = true;
+      };
+    }
+
     #buffers
     {
       mode = "n";
       key = "<C-Tab>";
-      action = "<CMD>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<CR>";
+      action = "<CMD>Telescope buffers  initial_mode=normal<CR>";
       options = {
         desc = "Next buffer";
       };
@@ -402,11 +473,11 @@
 
     # <C-c> instead of pressing esc just because
     /*
-         {
-        mode = "i";
-        key = "<C-c>";
-        action = "<Esc>";
-      }
+       {
+      mode = "i";
+      key = "<C-c>";
+      action = "<Esc>";
+    }
     */
 
     {

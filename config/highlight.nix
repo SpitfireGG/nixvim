@@ -2,15 +2,13 @@
   config,
   lib,
   ...
-}:
-let
-  colors = import ../config/colors/${config.theme}.nix { };
-in
-{
+}: let
+  colors = import ../config/colors/${config.theme}.nix {};
+in {
   config = {
     highlight = {
       TablineFill = {
-        bg = "none";
+        bg = colors.base0E;
       };
       TabLine = {
         bg = "none";
@@ -33,28 +31,26 @@ in
         fg = "none";
       };
 
-      # Telescope - Made transparent
       TelescopePromptBorder = {
         fg = colors.base01;
-        bg = "none"; # Transparent background
+        bg = "none";
       };
       TelescopePromptNormal = {
         fg = "none";
-        bg = "none"; # Transparent background
+        bg = "none";
       };
       TelescopePromptPrefix = {
         fg = colors.base08;
-        bg = "none"; # Transparent background
+        bg = "none";
       };
       TelescopeSelection = {
         fg = "none";
-        bg = "none"; # Transparent selection
+        bg = "none";
       };
 
-      # Completion Menu - Made fully transparent
       Pmenu = {
         fg = "none";
-        bg = "none"; # Transparent popup menu
+        bg = "none";
       };
       Pumblend = {
         fg = "none";
@@ -66,56 +62,52 @@ in
       };
       PmenuSbar = {
         fg = "none";
-        bg = "none"; # Transparent scrollbar
+        bg = "none";
       };
       PmenuThumb = {
         fg = "none";
-        bg = "none"; # Transparent scrollbar thumb
+        bg = "none";
       };
       PmenuSel = {
         fg = "none";
         bg = "none";
       };
 
-      # Window borders and floats - Made transparent
       VertSplit = {
         fg = "none";
         bg = "none";
       };
       FloatBorder = {
         fg = "none";
-        bg = "none"; # Transparent float border
+        bg = "none";
       };
       NormalFloat = {
         fg = "none";
-        bg = "none"; # Transparent float window
+        bg = "none";
       };
       LineNr = {
         fg = "none";
         bg = "none";
       };
 
-      # Noice popups - Made transparent
       NoiceCmdlinePopup = {
         fg = colors.base04;
-        bg = "none"; # Transparent command popup
+        bg = "none";
       };
       NoiceCmdlinePopupBorder = {
         fg = colors.base01;
-        bg = "none"; # Transparent popup border
+        bg = "none";
       };
       NoiceCmdlinePopupBorderSearch = {
         fg = colors.base01;
-        bg = "none"; # Transparent search popup border
+        bg = "none";
       };
 
-      # Additional transparent highlights for better integration
       WinSeparator = {
         fg = "none";
         bg = "none";
       };
 
-      # Make LSP diagnostic floats transparent
       DiagnosticFloatingError = {
         fg = colors.base08;
         bg = "none";
@@ -133,14 +125,13 @@ in
         bg = "none";
       };
 
-      # Make hover documentation transparent
       LspInfoBorder = {
-        fg = colors.base01;
+        fg = colors.base02;
         bg = "none";
       };
     };
     extraConfigLua = ''
-                  vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
       vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
       vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
     '';
